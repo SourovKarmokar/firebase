@@ -21,11 +21,11 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1>
+    <div className='flex flex-col p-4 justify-center items-center'>
+      <h1 className='text-3xl my-2'>
         Login
       </h1>
-      <form>
+      <form className='flex flex-col'>
         <div className='my-1'>
           <label htmlFor="email">Email address</label>
           <input
@@ -52,13 +52,19 @@ const Login = () => {
           />
         </div>
         <div>
-          <button onClick={handleLogin} >Login</button>
+          <button onClick={handleLogin} className='bg-black text-white p-1 rounded-md m-auto flex justify-center' >Login</button>
         </div>
       </form>
-      <p>
+      <p className='my-2'>
         No Account ? {' '}
-        <NavLink to="/register">
+        <NavLink to="/register" className="underline">
           Register
+        </NavLink>
+      </p>
+      <p className='my-2'>
+        Forget Password ? {' '}
+        <NavLink to="/reset" className="underline">
+          Reset Your Password
         </NavLink>
       </p>
     </div>
