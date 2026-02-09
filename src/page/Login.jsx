@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { loginWithEmailAndPassword } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { signInWithGoogle } from '../firebase'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -17,6 +18,13 @@ const Login = () => {
       console.log(err);
       
     }
+    
+  }
+
+  const handleSocialLogin = async () => {
+    const user = await signInWithGoogle();
+    console.log(user);
+    navigate("/home")
     
   }
 
@@ -53,6 +61,8 @@ const Login = () => {
         </div>
         <div>
           <button onClick={handleLogin} className='bg-black text-white p-1 rounded-md m-auto flex justify-center' >Login</button>
+
+          <button onClick={handleSocialLogin} className='bg-blue-500 text-white p-1 rounded-md  mx-20 mt-2 m-auto ' >Login With Google</button>
         </div>
       </form>
       <p className='my-2'>
